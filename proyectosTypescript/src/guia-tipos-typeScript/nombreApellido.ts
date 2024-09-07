@@ -1,5 +1,3 @@
-//desarrollo
-// primero se hace la creación de interfaces.
 interface tipoVehiculo {
     tipo: String;
     marca: String;
@@ -49,11 +47,7 @@ const miTercerVehiculo: testArray = {
     ]
 }
 
-// objeto 1
-
 console.log({miVehiculo});
-
-// toca hacerlo así por la razón de que tengo en el objeto a Partial para que no coloque problema por no definir todas las vari
 
 if (miVehiculo.arrancarVehiculo) {
     miVehiculo.arrancarVehiculo();
@@ -61,32 +55,23 @@ if (miVehiculo.arrancarVehiculo) {
     console.log("No se ha definido la función arrancarVehiculo.");
 }
 
-// objeto 2
-
 if(miSegundoVehiculo.agregarSuspension){
     miSegundoVehiculo.agregarSuspension()
 }else{
     console.log("no se ha definido la función agregarSuspension.")
 }
 
-// objeto 3
-
 console.log({miTercerVehiculo});
-
-//Imprime un índice especifico del objeto miTercerObjeto, accede a la propiedad empleando la 
-//notación caracteristicasArray[ ][ ] obtén en la impresión de consola los valores: azul. 
 
 console.log( miTercerVehiculo.caracteristicasArray[0][0]);
 
-// ahora imprimir 4 puertas
-
 console.log(miTercerVehiculo.caracteristicasArray[2][1]);   
 
-miTercerVehiculo.caracteristicasArray.forEach((caracteristica) => { // caracteristica es una variable que yo defino nomas.
-    console.log(caracteristica[0]);                                 // se imprime la columna 0 de cada Array
+miTercerVehiculo.caracteristicasArray.forEach((caracteristica) => { 
+    console.log(caracteristica[0]);                                
 });
 
-miTercerVehiculo.caracteristicasArray.forEach((item) => { // se imprime la primer columna de cada Array
+miTercerVehiculo.caracteristicasArray.forEach((item) => { 
     console.log(item[1]);
 })
 
