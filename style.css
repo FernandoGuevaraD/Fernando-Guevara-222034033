@@ -1,0 +1,120 @@
+
+.main_container{
+    background-color: #387F39;
+    padding: 10px;
+
+}
+
+.header_container{
+    background-color: #F6E96B;
+    border-radius: 8px;
+    display: flex;
+    margin: 5px;
+    
+}
+
+.logo{
+    background-color: #BEDC74;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.titulo_header{
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+
+.social_container{
+    background-color: #c4b8b5;
+    border-radius: 8px;
+    width: 500px;
+    margin-left: 500px;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    text-align: center;
+    
+}
+
+.social_letra{
+    color: #000000;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 50px;
+
+    
+}
+
+.internos{
+    background-color: #ffded7;
+    border-radius: 8px;
+    display: inline-block;
+    width: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px; 
+}
+
+.nav_container{
+    background-color: #402b2b;
+    border-radius: 8px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 100px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    
+
+}
+
+.buttons_container{
+    background-color: #eba3a3;
+    border-radius: 8px;
+    display: flex;
+    margin: 20px;
+    
+}
+
+.buttons{
+    background-color: #dc3939;
+    border-radius: 8px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+}
+
+.slider_content{
+    background-color: #402b2b;
+    height: 200px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+
+
+.features_container{
+    background-color: #dabdbd;
+    display: flex;
+    height: 200px;
+    border-radius: 8px;
+    margin: 10px;
+    margin-bottom: 50px;
+
+}
+
+.feat_interno{
+    background-color: #eba3a3;
+    margin: 30px;
+    border-radius: 8px;
+    margin: 10px;
+    margin-left: 60px;
+    width: 400px;
+    text-align:center ;
+}
