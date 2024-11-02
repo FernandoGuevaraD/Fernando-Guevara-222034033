@@ -1,0 +1,11 @@
+.boton {
+    display: flex;
+    justify-content: center; 
+
+}
+.title1{
+    margin-top: 50px;
+    font-size: 15px;
+    margin-bottom:50px;
+    margin-left: 27%;
+}

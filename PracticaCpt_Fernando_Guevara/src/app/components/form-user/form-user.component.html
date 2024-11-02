@@ -1,0 +1,42 @@
+<div class="p-fluid1">
+
+    <form [formGroup]="userform" (ngSubmit)="onsubmit()" class="containerTotal">
+        <h1 class="titulo">Formulario de Solicitud de Vacaciones</h1>
+
+        <div class="container-name-last">
+
+            <div class="p-field1">
+                <label for="firstname">Nombre</label>
+                
+                <input id="firstName" type="text" pInputText formControlName="firstName" placeholder="Primer Nombre"/>
+            </div>
+    
+            <div class="p-field1">
+                <br>
+                <label for="lastName" ></label>
+                <input id="lastName" type="text" pInputText formControlName="lastName" placeholder="Apellido"/>
+            </div>
+
+        </div>
+
+        <div class="p-field" style="width: 100%;">
+            <label for="email">Correo Electrónico</label>
+            <div class="input-container">
+                <i class="pi pi-envelope"></i>
+                <input id="email" type="text" pInputText formControlName="email" />
+            </div>
+        </div>
+        
+        
+
+        <div class="p-field">
+            <label for="phne">Teléfono</label>
+            <div class="input-container">
+                <i class="pi pi-phone"></i>
+                <input id="phone" type="text" pInputText formControlName="phone" placeholder=""/>
+            </div>
+        </div>
+    </form>
+    
+  </div>
+  

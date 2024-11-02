@@ -1,0 +1,34 @@
+<div class="p-fluid1">
+
+    <form [formGroup]="licenseform" >
+
+        <div class="p-field1">
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <div class="input-container">
+                <i class="pi pi-calendar"></i>
+                <p-calendar class="calend" id="fechaInicio" formControlName="fechaInicio" dateFormat="dd/mm/yy" placeholder="DD/MM/YYYY"></p-calendar>
+                
+            </div>
+        </div>
+    <br>
+    <br>
+        <div class="p-field1">
+            <label for="fechaFinalizacion">Fecha de Finalización</label>
+            <div class="input-container">
+                <i class="pi pi-calendar"></i>
+                <p-calendar class="calend" id="fechaFinalizacion" formControlName="fechaFinalizacion" dateFormat="dd/mm/yy" placeholder="DD/MM/YYYY"></p-calendar>
+            </div>
+        </div>
+<br>
+<br>
+        <div class="p-field1">
+            <label for="firstname"> Notas </label>
+            <div class="input-container">
+                <i class="pi pi-align-left"></i>
+                <textarea id="textoDeNotas" pInputText formControlName="textoDeNotas"></textarea>
+            </div>
+        </div>
+
+    </form>
+    
+  </div>
