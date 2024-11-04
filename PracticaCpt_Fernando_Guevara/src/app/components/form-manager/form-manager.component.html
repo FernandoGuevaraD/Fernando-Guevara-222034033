@@ -3,10 +3,11 @@
     <form [formGroup]="managerform" class="containerTotal">
         <br>
         <div class="p-field1">
-            <label for="firstname">El nombre del gerente </label>
+            <label for="firstName">El nombre del gerente </label>
             <div class="input-container">
                 <i class="pi pi-user"></i>
                 <input id="firstName" type="text" pInputText formControlName="firstName"/>
+                <div *ngIf="managerform.controls['firstName'].invalid && managerform.controls['firstName'].touched" class="error">El nombre es requerido</div>
             </div>
             
         </div>
@@ -14,10 +15,11 @@
     <br>
     <br>
         <div class="p-field1">
-            <label for="firstname">Correo Electrónico del gerente </label>
+            <label for="email">Correo Electrónico del gerente </label>
             <div class="input-container">
                 <i class="pi pi-envelope"></i>
                 <input id="email" type="text" pInputText formControlName="email"/>
+                <div *ngIf="managerform.controls['email'].invalid && managerform.controls['email'].touched" class="error">El email es requerido</div>
             </div>
             
         </div>

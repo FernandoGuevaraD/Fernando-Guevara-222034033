@@ -18,6 +18,11 @@
     left: 10px; 
     color:#000000
 }
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
 
 
 .p-calendar {

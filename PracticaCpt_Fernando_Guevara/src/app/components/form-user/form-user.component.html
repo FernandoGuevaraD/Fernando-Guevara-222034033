@@ -6,15 +6,16 @@
         <div class="container-name-last">
 
             <div class="p-field1">
-                <label for="firstname">Nombre</label>
-                
+                <label for="firstName">Nombre</label>
                 <input id="firstName" type="text" pInputText formControlName="firstName" placeholder="Primer Nombre"/>
+                <div *ngIf="userform.controls['firstName'].invalid && userform.controls['firstName'].touched" class="error">El nombre es requerido</div>
             </div>
     
             <div class="p-field1">
                 <br>
                 <label for="lastName" ></label>
                 <input id="lastName" type="text" pInputText formControlName="lastName" placeholder="Apellido"/>
+                <div *ngIf="userform.controls['lastName'].invalid && userform.controls['lastName'].touched" class="error">El Apellido es requerido</div>
             </div>
 
         </div>
@@ -24,16 +25,20 @@
             <div class="input-container">
                 <i class="pi pi-envelope"></i>
                 <input id="email" type="text" pInputText formControlName="email" />
+                <div *ngIf="userform.controls['email'].invalid && userform.controls['email'].touched" class="error">
+                    Correo no válido
+                  </div>
             </div>
         </div>
         
         
 
         <div class="p-field">
-            <label for="phne">Teléfono</label>
+            <label for="phone">Teléfono</label>
             <div class="input-container">
                 <i class="pi pi-phone"></i>
                 <input id="phone" type="text" pInputText formControlName="phone" placeholder=""/>
+                <div *ngIf="userform.controls['phone'].invalid && userform.controls['phone'].touched" class="error">El Telefono es requerido</div>
             </div>
         </div>
     </form>

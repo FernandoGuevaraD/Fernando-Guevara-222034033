@@ -81,6 +81,11 @@ input:hover {
     border-radius: 5px;
     border: 1px solid #ddd;
 }
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
 
 
 

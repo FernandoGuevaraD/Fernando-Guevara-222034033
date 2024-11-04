@@ -19,8 +19,8 @@ export class FormUserComponent {
     
       firstName:['',Validators.required],
       lastName:['',Validators.required],
-      email:['',Validators.required,Validators.email],
-      phone:['',Validators.required,Validators.pattern]
+      email:['',[Validators.required, Validators.email]],
+      phone:['',[Validators.required, Validators.pattern]]
 
     })
   }

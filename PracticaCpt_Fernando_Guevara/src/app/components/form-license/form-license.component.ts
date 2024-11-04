@@ -34,4 +34,5 @@ export class FormLicenseComponent {
     } else {
       this.licenseform.markAllAsTouched();
     }
-  }}
+  }
+}

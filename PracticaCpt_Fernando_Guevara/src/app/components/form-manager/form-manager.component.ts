@@ -18,7 +18,7 @@ export class FormManagerComponent {
     this.managerform = this.fb.group({
     
       firstName:['',Validators.required],
-      email:['',Validators.required,Validators.email]
+      email:['',[Validators.required,Validators.email]]
 
     })
    }

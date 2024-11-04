@@ -9,6 +9,11 @@
     left: 10px; 
     color: #000000; 
 }
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
 
 input {
     border: 1px solid #d1c1c1; 
