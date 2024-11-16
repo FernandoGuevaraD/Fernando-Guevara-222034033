@@ -1,0 +1,27 @@
+<div class="center-container">
+    <form [formGroup]="loginform">
+      <p-card header="Login" [style]="{width:'600px', display:'flex', margin:'auto', 'justify-content':'center', 'align-items':'center', 'height':'200px'}">
+        <div class="field">
+          <input 
+            type="text" 
+            pInputText 
+            formControlName="Usname" 
+            class="w-full" 
+            name="Usname" 
+            placeholder="Apellido de usuario"/>
+        </div>
+  
+        <div class="field">
+          <input 
+            type="text" 
+            pInputText 
+            formControlName="Usemail" 
+            class="w-full" 
+            name="Usmail" 
+            placeholder="Correo Electrónico"/>
+        </div>
+      </p-card>
+  
+    </form>
+  </div>
+  
