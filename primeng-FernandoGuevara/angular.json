@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "primeng-FernandoGuevara": {
+    "primeNG-Fernando_guevara": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/primeng-fernando-guevara",
+            "outputPath": "dist/prime-ng-Fernando_guevara",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,9 +27,16 @@
               }
             ],
             "styles": [
+              "node_modules/primeng/resources/themes/saga-blue/theme.css", 
+              "node_modules/primeng/resources/primeng.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -59,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "primeng-FernandoGuevara:build:production"
+              "buildTarget": "primeNG-Fernando_guevara:build:production"
             },
             "development": {
-              "buildTarget": "primeng-FernandoGuevara:build:development"
+              "buildTarget": "primeNG-Fernando_guevara:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7eee6ffd-ea97-4e6d-a62d-f1fd50e23888"
   }
 }
