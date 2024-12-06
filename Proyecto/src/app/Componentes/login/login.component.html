@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-card">
+      <h1>Luxury Timepieces</h1>
+      <p>Bienvenido, ingresa tus credenciales para acceder.</p>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input id="username" type="text" pInputText [(ngModel)]="username" placeholder="Usuario" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-lock"></i>
+        </span>
+        <input id="password" type="password" pInputText [(ngModel)]="password" placeholder="Contraseña" />
+      </div>
+      <button pButton type="button" label="Iniciar Sesión" class="p-button-rounded p-button-secondary" (click)="login()"></button>
+    </div>
+  </div>
+  

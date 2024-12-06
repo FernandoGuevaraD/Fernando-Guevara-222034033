@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class="register-container">
+  <div class="register-card">
+    <h1>Registro</h1>
+    <p>Completa el formulario para crear tu cuenta.</p>
+    <form [formGroup]="registerform" (ngSubmit)="register()">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input id="username" type="text" pInputText formControlName="username" placeholder="Nombre de usuario" />
+      </div>
+      <div *ngIf="registerform.controls['username'].invalid && registerform.controls['username'].touched" class="error">
+        El nombre de usuario es requerido.
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-envelope"></i>
+        </span>
+        <input id="email" type="email" pInputText formControlName="email" placeholder="Correo electrónico" />
+      </div>
+      <div *ngIf="registerform.controls['email'].invalid && registerform.controls['email'].touched" class="error">
+        El correo electrónico es requerido y debe ser válido.
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-lock"></i>
+        </span>
+        <input id="password" type="password" pInputText formControlName="password" placeholder="Contraseña" />
+      </div>
+      <div *ngIf="registerform.controls['password'].invalid && registerform.controls['password'].touched" class="error">
+        La contraseña es requerida y debe tener al menos 6 caracteres.
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-check"></i>
+        </span>
+        <input id="confirmPassword" type="password" pInputText formControlName="confirmPassword" placeholder="Confirmar contraseña" />
+      </div>
+      <div *ngIf="registerform.controls['confirmPassword'].invalid && registerform.controls['confirmPassword'].touched" class="error">
+        Debes confirmar la contraseña.
+      </div>
+      <div *ngIf="!passwordsMatch() && registerform.controls['confirmPassword'].touched" class="error">
+        Las contraseñas no coinciden.
+      </div>
+
+      <div class="p-field">
+        <label for="birthDate">Fecha de nacimiento</label>
+        <p-calendar formControlName="birthDate" dateFormat="dd/mm/yy" showIcon="true" id="birthDate"></p-calendar>
+      </div>
+      <div *ngIf="registerform.controls['birthDate'].invalid && registerform.controls['birthDate'].touched" class="error">
+        La fecha de nacimiento es requerida.
+      </div>
+
+      <button pButton type="submit" label="Registrarse" class="p-button-rounded p-button-secondary"></button>
+    </form>
+  </div>
+</div>

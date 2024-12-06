@@ -1,1 +1,49 @@
-<p>register-products works!</p>
+<div class="product-register-container">
+  <div class="product-register-card">
+    <h1>Registrar Producto</h1>
+    <p>Completa la información del producto.</p>
+
+    <form [formGroup]="register_productform" (ngSubmit)="registerProduct()">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-tag"></i>
+        </span>
+        <input id="productName" type="text" pInputText formControlName="productName" placeholder="Nombre del reloj" />
+      </div>
+      <div *ngIf="register_productform.controls['productName'].invalid && register_productform.controls['productName'].touched" class="error">
+        El nombre del producto es requerido.
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-money-bill"></i>
+        </span>
+        <input id="purchasePrice" type="number" pInputText formControlName="purchasePrice" placeholder="Precio de compra" />
+      </div>
+      <div *ngIf="register_productform.controls['purchasePrice'].invalid && register_productform.controls['purchasePrice'].touched" class="error">
+        El precio de compra es requerido y debe ser mayor o igual a 0.
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-sort-numeric-up"></i>
+        </span>
+        <input id="quantity" type="number" pInputText formControlName="quantity" placeholder="Cantidad" />
+      </div>
+      <div *ngIf="register_productform.controls['quantity'].invalid && register_productform.controls['quantity'].touched" class="error">
+        La cantidad es requerida y debe ser mayor o igual a 1.
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-dollar"></i>
+        </span>
+        <input id="salePrice" type="number" pInputText formControlName="salePrice" placeholder="Precio de venta" />
+      </div>
+      <div *ngIf="register_productform.controls['salePrice'].invalid && register_productform.controls['salePrice'].touched" class="error">
+        El precio de venta es requerido y debe ser mayor o igual a 0.
+      </div>
+
+      <button pButton type="submit" label="Registrar Producto" class="p-button-rounded p-button-secondary"></button>
+    </form>
+  </div>
+</div>
