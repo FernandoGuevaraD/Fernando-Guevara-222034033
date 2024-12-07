@@ -6,7 +6,7 @@ using Microsoft.Data.SqlClient;
 
 namespace API_Front.Controllers
 {
-    [Route("api/[controller]")] // la ruta se compone por lo anterior mas api + nombre el controlador + nombre del metodo
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : Controller
     {
