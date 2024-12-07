@@ -1,0 +1,25 @@
+<div class="p-fluid">
+
+    <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+        <h2>Eliminar Producto</h2>
+    
+        <!-- Campo para ID del Usuario a eliminar -->
+        <div class="p-field">
+          <label for="productId">ID del Producto</label>
+          <input id="productId" type="number" pInputText formControlName="productId" />
+          <div *ngIf="deleteForm.controls['productId'].invalid && deleteForm.controls['productId'].touched" class="error">
+            ID no válido
+          </div>
+        </div>
+    
+        <!-- Botón para eliminar -->
+        <button pButton type="submit" label="Eliminar Producto" [disabled]="deleteForm.invalid" class="p-button-danger"></button>
+      </form>
+  
+      <!-- Mensajes de exito ó error -->
+       <div class="p-mt-3">
+          <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage}}"></p-message>
+          <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage}}"></p-message>
+       </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="p-fluid">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+      <h2>Actualizar Producto</h2>
+  
+      <!-- Campo para ID del Producto -->
+      <div class="p-field">
+        <label for="productId">ID del Producto</label>
+        <input id="productId" type="productId" pInputText formControlName="productId" />
+        <div *ngIf="updateForm.controls['productId'].invalid && updateForm.controls['productId'].touched" class="error">
+          ID no válido
+        </div>
+      </div>
+  
+      <!-- Campo para nuevo nombre de usuario -->
+      <div class="p-field">
+        <label for="NameProduct">Nuevo Nombre del producto</label>
+        <input id="NameProduct" type="NameProduct" pInputText formControlName="NameProduct" />
+        <div *ngIf="updateForm.controls['NameProduct'].invalid && updateForm.controls['NameProduct'].touched" class="error">
+          Producto no válido
+        </div>
+      </div>
+  
+      <!-- Campo para nuevo precio de compra -->
+      <div class="p-field">
+        <label for="ProductPriceCompra">Nuevo precio de compra </label>
+        <input id="ProductPriceCompra" type="text"pInputText formControlName="ProductPriceCompra" />
+        <div *ngIf="updateForm.controls['ProductPriceCompra'].invalid && updateForm.controls['ProductPriceCompra'].touched" class="error">
+          el precio debe ser numerico
+        </div>
+      </div>
+
+      <!-- Campo para cantidad -->
+      <div class="p-field">
+        <label for="Cantidad">Nueva cantidad de producto </label>
+        <input id="Cantidad" type="Cantidad"pInputText formControlName="Cantidad" />
+        <div *ngIf="updateForm.controls['Cantidad'].invalid && updateForm.controls['Cantidad'].touched" class="error">
+          la cantidad debe ser numerica
+        </div>
+      </div>
+
+      <!-- Campo para nuevo precio de venta -->
+      <div class="p-field">
+        <label for="ProductPriceVenta">Nuevo precio de venta </label>
+        <input id="ProductPriceVenta" type="text" pInputText formControlName="ProductPriceVenta" />
+        <div *ngIf="updateForm.controls['ProductPriceVenta'].invalid && updateForm.controls['ProductPriceVenta'].touched" class="error">
+          el precio debe ser numerico
+        </div>
+      </div>
+  
+      <!-- Botón para actualizar -->
+      <button pButton type="submit" [disabled]="updateForm.invalid">Actualizar Usuario</button>
+
+    </form>
+  
+
+    <!-- Mensajes de exito ó error -->
+     <div class="p-mt-3">
+        <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage}}"></p-message>
+        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage}}"></p-message>
+     </div>
+     <!-- el error que el profe decia que habia puede ser de aqui -->
+  </div>

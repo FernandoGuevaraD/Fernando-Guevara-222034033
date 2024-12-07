@@ -1,1 +1,49 @@
-<p>seacrh-products works!</p>
+<div class="filter-users-container">
+    <h2>Buscar Producto por ID</h2>
+    <div class="filter-form">
+      <input
+        pInputText
+        type="text"
+        placeholder="Ingresa el ID del usuario"
+        [(ngModel)]="productId"
+      />
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        (click)="searchProductById()"
+        [disabled]="isLoading"
+      ></button>
+    </div>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <p-table
+      *ngIf="products.length"
+      [value]="products"
+      [paginator]="true"
+      [rows]="5"
+      [responsiveLayout]="'scroll'"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Producto</th>
+          <th>Precio de compra</th>
+          <th>Cantidad</th>
+          <th>Precio de venta</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-products>
+        <tr>
+            <td>{{ products.nameProduct }}</td>
+            <td>{{ products.productPriceCompra }}</td>
+            <td>{{ products.cantidad }}</td>
+            <td>{{ products.productPriceVenta }}</td>
+            <td>
+            <button pButton type="button" label="Editar" class="p-button-sm p-button-warning" ></button>
+            <button pButton type="button" label="Eliminar" class="p-button-sm p-button-danger"></button>
+            </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
