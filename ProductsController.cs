@@ -10,7 +10,7 @@ namespace API_Front.Controllers
     [ApiController]
     public class ProductsController : Controller
     {
-        private readonly string _connectionString = "Server=LAPTOP-0SMBKNDP;Database=Products;User Id=sa;Password=12345678;TrustServerCertificate=true;";
+        private readonly string _connectionString = "Server=DESKTOP-8UQG503\\MSSQLSERVE01;Database=Products;User Id=sa;Password=admin1;TrustServerCertificate=true;";
 
 
         [HttpPost("register")]
@@ -25,17 +25,20 @@ namespace API_Front.Controllers
             using (var connection = new SqlConnection(_connectionString))
             {
                 var sql = "INSERT INTO Products (NameProduct, ProductPriceCompra, Cantidad, ProductPriceVenta) VALUES  (@NameProduct, @ProductPriceCompra, @Cantidad, @ProductPriceVenta )";
-                var rowsAffected = connection.Execute(sql, new { product.NameProduct, product.ProductPriceCompra, product.Cantidad , product.ProductPriceVenta });
+                var rowsAffected = connection.Execute(sql, new { product.NameProduct, product.ProductPriceCompra, product.Cantidad, product.ProductPriceVenta });
                 // execute es de Dapper y ahora es para mandarle
 
                 if (rowsAffected != 0)
                 {
-                    return Ok("Product registered succesfully. ");
+                    return Ok(new { message = "Information sent" });
                 }
                 else
                 {
                     return StatusCode(500, "An error ocurred while registering the Product.");
+                    
                 }
+
+                
             }
         }
 
@@ -56,11 +59,11 @@ namespace API_Front.Controllers
 
                 if (rowsAffected > 0)
                 {
-                    return Ok("Product updated successfully.");
+                    return Ok(new { message = "Information sent" });
                 }
                 else
                 {
-                    return NotFound("Product not found.");
+                    return NotFound(new { message = "Information sent" });
                 }
             }
         }
@@ -76,11 +79,12 @@ namespace API_Front.Controllers
 
                 if (rowsAffected > 0)
                 {
-                    return Ok("Product deleted successfully.");
+                    
+                    return Ok(new { message = "Information sent" });
                 }
                 else
                 {
-                    return NotFound("Product not found.");
+                    return NotFound(new { message = "Information sent" });
                 }
             }
         }
@@ -88,16 +92,16 @@ namespace API_Front.Controllers
 
         [HttpPost("validate")]
 
-        public IActionResult validate([FromBody] Products product)                                                
+        public IActionResult validate([FromBody] Products product)
         {
-            if (product == null) 
+            if (product == null)
             {
                 return BadRequest("Invalid user data.");
             }
-            using (var connection = new SqlConnection(_connectionString)) 
+            using (var connection = new SqlConnection(_connectionString))
 
             {
-                var sql = "SELECT * FROM Products WHERE  NameProduct = @NameProduct and ProductPriceCompra = @ProductPriceCompra and  Cantidad = @Cantidad and ProductPriceVenta = @ProductPriceVenta"; 
+                var sql = "SELECT * FROM Products WHERE  NameProduct = @NameProduct and ProductPriceCompra = @ProductPriceCompra and  Cantidad = @Cantidad and ProductPriceVenta = @ProductPriceVenta";
                 var result = connection.QuerySingleOrDefault<Products>(sql, new { product.NameProduct, product.ProductPriceCompra, product.Cantidad, product.ProductPriceVenta });
 
                 if (result != null)
