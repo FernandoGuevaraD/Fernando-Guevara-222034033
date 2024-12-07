@@ -1,0 +1,27 @@
+<div class="product-register-container">
+    <div class="product-register-card">
+        <h1>Gestión de Productos</h1>
+        <p>Selecciona la acción que deseas realizar:</p>
+
+        <div class="menu-buttons">
+            <button pButton class="p-button-rounded p-button-danger" (click)="onDelete()">
+                <i class="pi pi-trash"></i> Eliminar Producto
+            </button>
+            <button pButton class="p-button-rounded p-button-warning" (click)="onEdit()">
+                <i class="pi pi-pencil"></i> Modificar Producto
+            </button>
+            <button pButton class="p-button-rounded p-button-success" (click)="onAdd()">
+                <i class="pi pi-plus"></i> Ingresar Producto
+            </button>
+            <button pButton class="p-button-rounded p-button-info" (click)="onSearch()">
+                <i class="pi pi-search"></i> Buscar Producto
+            </button>
+            <button pButton class="p-button-rounded p-button-primary" (click)="onValidate()">
+                <i class="pi pi-check"></i> Validar Producto
+            </button>
+            <button pButton class="p-button-rounded p-button-help" (click)="onList()">
+                <i class="pi pi-list"></i> Listar Productos
+            </button>
+        </div>
+    </div>
+</div>

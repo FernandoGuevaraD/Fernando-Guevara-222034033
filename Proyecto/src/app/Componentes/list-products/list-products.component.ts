@@ -49,8 +49,13 @@ export class ListProductsComponent {
     });
   }
 
-  onEdit(products: any): void {
-    this.router.navigate(['/myupdate/edit', products.userId]);
+  onEdit(productId: number): void {
+    this.router.navigate(['/modify', productId]); // Redirige al componente de edición
   }
+  
+  onDelete(productId: number): void {
+    this.router.navigate(['/delete', productId]); // Redirige al componente de eliminación
+  }
+  
 
 }

@@ -5,35 +5,42 @@ import { ModifyProductsComponent } from './Componentes/modify-products/modify-pr
 import { DeleteProductsComponent } from './Componentes/delete-products/delete-products.component';
 import { ValidateProductsComponent } from './Componentes/validate-products/validate-products.component';
 import { ListProductsComponent } from './Componentes/list-products/list-products.component';
+import { ProductMenuComponent } from './Componentes/menu/menu.component';
 
 export const routes: Routes = [
- 
     {
-        path: '', redirectTo: 'home', pathMatch: 'full'
+        path: '', redirectTo: 'menu', pathMatch: 'full' // Redirige al menú por defecto
     },
     {
-        path: 'register', 
-        component: RegisterProductsComponent
+        path: 'menu',
+        component: ProductMenuComponent // Ruta al menú principal
     },
     {
-        path: 'modify', 
-        component: ModifyProductsComponent
+        path: 'register',
+        component: RegisterProductsComponent // Ruta para registrar productos
     },
     {
-        path: 'delete', 
-        component: DeleteProductsComponent
+        path: 'modify/:id',
+        component: ModifyProductsComponent // Ruta para modificar productos
     },
     {
-        path: 'validate', 
-        component: ValidateProductsComponent
+        path: 'delete/:id',
+        component: DeleteProductsComponent // Ruta para eliminar productos
     },
     {
-        path: 'list-products', 
-        component: ListProductsComponent
+        path: 'validate',
+        component: ValidateProductsComponent // Ruta para validar productos
     },
     {
-        path: 'search', 
-        component: SeacrhProductsComponent
+        path: 'list-products',
+        component: ListProductsComponent // Ruta para listar productos
+    },
+    {
+        path: 'search',
+        component: SeacrhProductsComponent // Ruta para buscar productos
+    },
+    {
+        path: '**',
+        redirectTo: 'menu', pathMatch: 'full' // Redirige al menú si la ruta no existe
     }
-
 ];

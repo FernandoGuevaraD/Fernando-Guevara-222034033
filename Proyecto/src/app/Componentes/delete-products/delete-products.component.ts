@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductProcessService } from '../../services/product-process.service';
+import { ActivatedRoute } from '@angular/router'; // Importamos ActivatedRoute
 import { InputTextModule } from 'primeng/inputtext';
 import { Password, PasswordModule } from 'primeng/password';
 import { CommonModule } from '@angular/common';
@@ -22,35 +23,63 @@ import { MessageBundle } from '@angular/compiler';
     MessageModule
   ],
   templateUrl: './delete-products.component.html',
-  styleUrl: './delete-products.component.css'
+  styleUrls: ['./delete-products.component.css'] // Corregimos el nombre del atributo
 })
-export class DeleteProductsComponent {
+export class DeleteProductsComponent implements OnInit {
   deleteForm: FormGroup;
-
-  succesMessage: string = ''; 
+  successMessage: string = ''; 
   errorMessage: string = '';
+  productId: string | null = null; // Para almacenar el ID recibido de la URL
 
-  constructor(private fb: FormBuilder, private ProductProcessService: ProductProcessService){
+  constructor(
+    private fb: FormBuilder, 
+    private ProductProcessService: ProductProcessService,
+    private route: ActivatedRoute // Inyectamos ActivatedRoute
+  ) {
     this.deleteForm = this.fb.group({
       productId: ['', Validators.required]
     });
   }
 
+  ngOnInit(): void {
+    // Capturamos el parámetro `id` de la URL y lo asignamos al formulario
+    this.productId = this.route.snapshot.paramMap.get('id');
+    if (this.productId) {
+      this.deleteForm.patchValue({ productId: this.productId });
+    }
+  }
+
   onDelete(): void {
     if (this.deleteForm.valid) {
       const { productId } = this.deleteForm.value;
+  
+      // Limpia los mensajes antes de la solicitud
+      this.successMessage = '';
+      this.errorMessage = '';
+  
       this.ProductProcessService.deleteProduct(productId).subscribe({
         next: () => {
-          this.succesMessage = 'Usuario eliminado exitosamente.';
+          // Si se elimina correctamente, el backend responde con un código 200
+          this.successMessage = 'Producto eliminado exitosamente.';
           this.errorMessage = '';
           this.deleteForm.reset();
         },
-        error: () => {
-          this.errorMessage = 'Error al eliminar el usuario.';
-          this.succesMessage = '';
+        error: (err) => {
+          // Manejo del código 404 u otros errores
+          if (err.status === 404) {
+            this.errorMessage = 'El producto no existe o ya fue eliminado.';
+          } else {
+            this.errorMessage = 'Hubo un error al intentar eliminar el producto.';
+          }
+          this.successMessage = '';
         },
-        complete: () => console.log('Proceso de eliminación completado'),
+        complete: () => {
+          console.log('Proceso de eliminación completado');
+        },
       });
+    } else {
+      this.errorMessage = 'Por favor, ingresa un ID válido para eliminar el producto.';
+      console.error('Formulario inválido:', this.deleteForm.errors);
     }
-  } 
+  }
 }

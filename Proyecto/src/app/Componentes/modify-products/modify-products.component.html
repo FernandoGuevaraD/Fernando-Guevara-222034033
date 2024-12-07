@@ -1,7 +1,7 @@
 <div class="product-register-container">
   <div class="product-register-card">
     <h1>Actualizar Producto</h1>
-    <p>Por favor, completa el formulario para actualizar los detalles del producto.</p>
+    <p>Modifica los campos necesarios del producto.</p>
     <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
       <!-- Campo para ID del Producto -->
       <div class="p-inputgroup">
@@ -11,29 +11,29 @@
         <input id="productId" type="text" pInputText formControlName="productId" placeholder="ID del Producto" />
       </div>
       <div *ngIf="updateForm.controls['productId'].invalid && updateForm.controls['productId'].touched" class="error">
-        El ID del producto es requerido.
+        ID no válido
       </div>
 
-      <!-- Campo para nuevo nombre del producto -->
+      <!-- Campo para nuevo nombre de producto -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-          <i class="pi pi-tag"></i>
+          <i class="pi pi-pencil"></i>
         </span>
         <input id="NameProduct" type="text" pInputText formControlName="NameProduct" placeholder="Nuevo Nombre del Producto" />
       </div>
       <div *ngIf="updateForm.controls['NameProduct'].invalid && updateForm.controls['NameProduct'].touched" class="error">
-        El nombre del producto es requerido.
+        Producto no válido
       </div>
 
       <!-- Campo para nuevo precio de compra -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-          <i class="pi pi-money-bill"></i>
+          <i class="pi pi-dollar"></i>
         </span>
-        <input id="ProductPriceCompra" type="number" pInputText formControlName="ProductPriceCompra" placeholder="Precio de Compra" />
+        <input id="ProductPriceCompra" type="text" pInputText formControlName="ProductPriceCompra" placeholder="Nuevo Precio de Compra" />
       </div>
       <div *ngIf="updateForm.controls['ProductPriceCompra'].invalid && updateForm.controls['ProductPriceCompra'].touched" class="error">
-        El precio de compra es requerido.
+        El precio debe ser numérico
       </div>
 
       <!-- Campo para cantidad -->
@@ -41,10 +41,10 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-box"></i>
         </span>
-        <input id="Cantidad" type="number" pInputText formControlName="Cantidad" placeholder="Cantidad" />
+        <input id="Cantidad" type="text" pInputText formControlName="Cantidad" placeholder="Nueva Cantidad" />
       </div>
       <div *ngIf="updateForm.controls['Cantidad'].invalid && updateForm.controls['Cantidad'].touched" class="error">
-        La cantidad es requerida.
+        La cantidad debe ser numérica
       </div>
 
       <!-- Campo para nuevo precio de venta -->
@@ -52,19 +52,19 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-dollar"></i>
         </span>
-        <input id="ProductPriceVenta" type="number" pInputText formControlName="ProductPriceVenta" placeholder="Precio de Venta" />
+        <input id="ProductPriceVenta" type="text" pInputText formControlName="ProductPriceVenta" placeholder="Nuevo Precio de Venta" />
       </div>
       <div *ngIf="updateForm.controls['ProductPriceVenta'].invalid && updateForm.controls['ProductPriceVenta'].touched" class="error">
-        El precio de venta es requerido.
+        El precio debe ser numérico
       </div>
 
       <!-- Botón para actualizar -->
-      <button pButton type="submit" label="Actualizar Producto" class="p-button-rounded p-button-secondary"></button>
+      <button pButton type="submit" label="Actualizar Producto" class="p-button-rounded p-button-danger"></button>
     </form>
 
     <!-- Mensajes de éxito o error -->
     <div class="p-mt-3">
-      <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage }}"></p-message>
+      <p-message *ngIf="successMessage" severity="success" text="{{ successMessage }}"></p-message>
       <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
     </div>
   </div>

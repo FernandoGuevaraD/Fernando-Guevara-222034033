@@ -19,8 +19,10 @@
           <td>{{ products.cantidad }}</td>
           <td>{{ products.productPriceVenta }}</td>
           <td>
-            <button pButton type="button" label="Editar" class="p-button-sm p-button-warning" (click)="onEdit(products)"></button>
-            <button pButton type="button" label="Eliminar" class="p-button-sm p-button-danger"></button>
+            <!-- Botón de Editar -->
+            <button pButton type="button" label="Editar" class="p-button-sm p-button-warning" (click)="onEdit(products.id)"></button>
+            <!-- Botón de Eliminar -->
+            <button pButton type="button" label="Eliminar" class="p-button-sm p-button-danger" (click)="onDelete(products.id)"></button>
           </td>
         </tr>
       </ng-template>

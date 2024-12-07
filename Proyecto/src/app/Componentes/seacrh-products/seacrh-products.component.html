@@ -30,7 +30,6 @@
           <th>Precio de compra</th>
           <th>Cantidad</th>
           <th>Precio de venta</th>
-          <th>Acciones</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-products>
@@ -39,20 +38,6 @@
           <td>{{ products.productPriceCompra }}</td>
           <td>{{ products.cantidad }}</td>
           <td>{{ products.productPriceVenta }}</td>
-          <td>
-            <button
-              pButton
-              type="button"
-              label="Editar"
-              class="p-button-sm p-button-warning"
-            ></button>
-            <button
-              pButton
-              type="button"
-              label="Eliminar"
-              class="p-button-sm p-button-danger"
-            ></button>
-          </td>
         </tr>
       </ng-template>
     </p-table>

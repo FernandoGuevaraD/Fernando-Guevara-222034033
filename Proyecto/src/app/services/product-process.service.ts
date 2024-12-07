@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductProcessService {
-  apiUrl= "https://localhost:7078/api/Products";
+  apiUrl= "https://localhost:7083/api/Products";
 
   constructor(private http:HttpClient) { }
 
@@ -30,6 +30,7 @@ export class ProductProcessService {
     return this.http.post(`${this.apiUrl}/validate`, body)
 
   }
+
 
   getProducts(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/getProducts`);

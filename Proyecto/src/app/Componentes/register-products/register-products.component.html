@@ -42,7 +42,11 @@
         El precio de venta es requerido y debe ser mayor o igual a 0.
       </div>
 
-      <button pButton type="submit" label="Registrar Producto" class="p-button-rounded p-button-secondary"></button>
+      <button pButton type="submit" label="Registrar Producto" class="p-button-rounded p-button-danger"></button>
+      <div class="p-mt-3">
+        <p-message *ngIf="successMessage" severity="success" text="{{ successMessage }}"></p-message>
+        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+      </div>
     </form>
   </div>
 </div>
