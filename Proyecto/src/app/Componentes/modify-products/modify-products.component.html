@@ -1,62 +1,71 @@
-<div class="p-fluid">
+<div class="product-register-container">
+  <div class="product-register-card">
+    <h1>Actualizar Producto</h1>
+    <p>Por favor, completa el formulario para actualizar los detalles del producto.</p>
     <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-      <h2>Actualizar Producto</h2>
-  
       <!-- Campo para ID del Producto -->
-      <div class="p-field">
-        <label for="productId">ID del Producto</label>
-        <input id="productId" type="productId" pInputText formControlName="productId" />
-        <div *ngIf="updateForm.controls['productId'].invalid && updateForm.controls['productId'].touched" class="error">
-          ID no válido
-        </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-id-card"></i>
+        </span>
+        <input id="productId" type="text" pInputText formControlName="productId" placeholder="ID del Producto" />
       </div>
-  
-      <!-- Campo para nuevo nombre de usuario -->
-      <div class="p-field">
-        <label for="NameProduct">Nuevo Nombre del producto</label>
-        <input id="NameProduct" type="NameProduct" pInputText formControlName="NameProduct" />
-        <div *ngIf="updateForm.controls['NameProduct'].invalid && updateForm.controls['NameProduct'].touched" class="error">
-          Producto no válido
-        </div>
+      <div *ngIf="updateForm.controls['productId'].invalid && updateForm.controls['productId'].touched" class="error">
+        El ID del producto es requerido.
       </div>
-  
+
+      <!-- Campo para nuevo nombre del producto -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-tag"></i>
+        </span>
+        <input id="NameProduct" type="text" pInputText formControlName="NameProduct" placeholder="Nuevo Nombre del Producto" />
+      </div>
+      <div *ngIf="updateForm.controls['NameProduct'].invalid && updateForm.controls['NameProduct'].touched" class="error">
+        El nombre del producto es requerido.
+      </div>
+
       <!-- Campo para nuevo precio de compra -->
-      <div class="p-field">
-        <label for="ProductPriceCompra">Nuevo precio de compra </label>
-        <input id="ProductPriceCompra" type="text"pInputText formControlName="ProductPriceCompra" />
-        <div *ngIf="updateForm.controls['ProductPriceCompra'].invalid && updateForm.controls['ProductPriceCompra'].touched" class="error">
-          el precio debe ser numerico
-        </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-money-bill"></i>
+        </span>
+        <input id="ProductPriceCompra" type="number" pInputText formControlName="ProductPriceCompra" placeholder="Precio de Compra" />
+      </div>
+      <div *ngIf="updateForm.controls['ProductPriceCompra'].invalid && updateForm.controls['ProductPriceCompra'].touched" class="error">
+        El precio de compra es requerido.
       </div>
 
       <!-- Campo para cantidad -->
-      <div class="p-field">
-        <label for="Cantidad">Nueva cantidad de producto </label>
-        <input id="Cantidad" type="Cantidad"pInputText formControlName="Cantidad" />
-        <div *ngIf="updateForm.controls['Cantidad'].invalid && updateForm.controls['Cantidad'].touched" class="error">
-          la cantidad debe ser numerica
-        </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-box"></i>
+        </span>
+        <input id="Cantidad" type="number" pInputText formControlName="Cantidad" placeholder="Cantidad" />
+      </div>
+      <div *ngIf="updateForm.controls['Cantidad'].invalid && updateForm.controls['Cantidad'].touched" class="error">
+        La cantidad es requerida.
       </div>
 
       <!-- Campo para nuevo precio de venta -->
-      <div class="p-field">
-        <label for="ProductPriceVenta">Nuevo precio de venta </label>
-        <input id="ProductPriceVenta" type="text" pInputText formControlName="ProductPriceVenta" />
-        <div *ngIf="updateForm.controls['ProductPriceVenta'].invalid && updateForm.controls['ProductPriceVenta'].touched" class="error">
-          el precio debe ser numerico
-        </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-dollar"></i>
+        </span>
+        <input id="ProductPriceVenta" type="number" pInputText formControlName="ProductPriceVenta" placeholder="Precio de Venta" />
       </div>
-  
+      <div *ngIf="updateForm.controls['ProductPriceVenta'].invalid && updateForm.controls['ProductPriceVenta'].touched" class="error">
+        El precio de venta es requerido.
+      </div>
+
       <!-- Botón para actualizar -->
-      <button pButton type="submit" [disabled]="updateForm.invalid">Actualizar Usuario</button>
-
+      <button pButton type="submit" label="Actualizar Producto" class="p-button-rounded p-button-secondary"></button>
     </form>
-  
 
-    <!-- Mensajes de exito ó error -->
-     <div class="p-mt-3">
-        <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage}}"></p-message>
-        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage}}"></p-message>
-     </div>
-     <!-- el error que el profe decia que habia puede ser de aqui -->
+    <!-- Mensajes de éxito o error -->
+    <div class="p-mt-3">
+      <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage }}"></p-message>
+      <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+    </div>
   </div>
+</div>

@@ -1,25 +1,27 @@
-<div class="p-fluid">
-
+<div class="product-register-container">
+  <div class="product-register-card">
+    <h1>Eliminar Producto</h1>
+    <p>Introduce el ID del producto que deseas eliminar.</p>
     <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
-        <h2>Eliminar Producto</h2>
-    
-        <!-- Campo para ID del Usuario a eliminar -->
-        <div class="p-field">
-          <label for="productId">ID del Producto</label>
-          <input id="productId" type="number" pInputText formControlName="productId" />
-          <div *ngIf="deleteForm.controls['productId'].invalid && deleteForm.controls['productId'].touched" class="error">
-            ID no válido
-          </div>
-        </div>
-    
-        <!-- Botón para eliminar -->
-        <button pButton type="submit" label="Eliminar Producto" [disabled]="deleteForm.invalid" class="p-button-danger"></button>
-      </form>
-  
-      <!-- Mensajes de exito ó error -->
-       <div class="p-mt-3">
-          <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage}}"></p-message>
-          <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage}}"></p-message>
-       </div>
+      <!-- Campo para ID del Producto a eliminar -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-id-card"></i>
+        </span>
+        <input id="productId" type="number" pInputText formControlName="productId" placeholder="ID del Producto" />
+      </div>
+      <div *ngIf="deleteForm.controls['productId'].invalid && deleteForm.controls['productId'].touched" class="error">
+        El ID del producto no es válido.
+      </div>
 
+      <!-- Botón para eliminar -->
+      <button pButton type="submit" label="Eliminar Producto" class="p-button-rounded p-button-danger"></button>
+    </form>
+
+    <!-- Mensajes de éxito o error -->
+    <div class="p-mt-3">
+      <p-message *ngIf="succesMessage" severity="success" text="{{ succesMessage }}"></p-message>
+      <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+    </div>
+  </div>
 </div>
