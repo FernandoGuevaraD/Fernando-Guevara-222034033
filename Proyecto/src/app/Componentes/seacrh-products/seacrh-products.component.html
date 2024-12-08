@@ -1,0 +1,45 @@
+<div class="product-register-container">
+  <div class="product-register-card">
+    <h1>Buscar Producto por ID</h1>
+    <div class="p-inputgroup">
+      <input
+        pInputText
+        type="text"
+        placeholder="Ingresa el ID del producto"
+        [(ngModel)]="productId"
+      />
+      <button
+        pButton
+        type="button"
+        label="Buscar"
+        (click)="searchProductById()"
+        [disabled]="isLoading"
+      ></button>
+    </div>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p-table
+      *ngIf="products.length"
+      [value]="products"
+      [paginator]="true"
+      [rows]="5"
+      [responsiveLayout]="'scroll'"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Producto</th>
+          <th>Precio de compra</th>
+          <th>Cantidad</th>
+          <th>Precio de venta</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-products>
+        <tr>
+          <td>{{ products.nameProduct }}</td>
+          <td>{{ products.productPriceCompra }}</td>
+          <td>{{ products.cantidad }}</td>
+          <td>{{ products.productPriceVenta }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

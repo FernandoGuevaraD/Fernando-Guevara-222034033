@@ -1,0 +1,59 @@
+<div class="product-register-container">
+  <div class="product-register-card">
+    <h1>Validar Producto</h1>
+    <p>Completa la información del producto.</p>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <!-- Campo Nombre del Producto -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-tag"></i>
+        </span>
+        <input id="NameProduct" type="NameProduct" pInputText formControlName="NameProduct" placeholder="Nombre del Producto" />
+      </div>
+      <div *ngIf="userForm.controls['NameProduct'].invalid && userForm.controls['NameProduct'].touched" class="error">
+        El nombre del producto es requerido.
+      </div>
+
+      <!-- Campo Precio de Compra -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-money-bill"></i>
+        </span>
+        <input id="ProductPriceCompra" type="ProductPriceCompra" pInputText formControlName="ProductPriceCompra" placeholder="Precio de compra" />
+      </div>
+      <div *ngIf="userForm.controls['ProductPriceCompra'].invalid && userForm.controls['ProductPriceCompra'].touched" class="error">
+        El precio de compra es requerido.
+      </div>
+
+      <!-- Campo Cantidad -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-sort-numeric-up"></i>
+        </span>
+        <input id="Cantidad" type="Cantidad" pInputText formControlName="Cantidad" placeholder="Cantidad" />
+      </div>
+      <div *ngIf="userForm.controls['Cantidad'].invalid && userForm.controls['Cantidad'].touched" class="error">
+        La cantidad es requerida.
+      </div>
+
+      <!-- Campo Precio de Venta -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-dollar"></i>
+        </span>
+        <input id="ProductPriceVenta" type="ProductPriceVenta" pInputText formControlName="ProductPriceVenta" placeholder="Precio de venta" />
+      </div>
+      <div *ngIf="userForm.controls['ProductPriceVenta'].invalid && userForm.controls['ProductPriceVenta'].touched" class="error">
+        El precio de venta es requerido.
+      </div>
+
+      <!-- Botón de Validar Producto -->
+      <button pButton type="submit" label="Validar Producto" class="p-button-rounded p-button-danger" ></button>
+      
+    </form>
+    <div class="p-mt-3">
+      <p-message *ngIf="successMessage" severity="success" text="{{ successMessage }}"></p-message>
+      <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+    </div>
+  </div>
+</div>

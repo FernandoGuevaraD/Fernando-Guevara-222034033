@@ -1,0 +1,14 @@
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(BrowserAnimationsModule,HttpClientModule) // esta importación sirve para que se detecte cosas de losw componentes.
+  
+  ]
+};

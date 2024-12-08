@@ -1,0 +1,31 @@
+<div class="table-container">
+  <div class="table-card">
+    <p-table [value]="products" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Precio de compra</th>
+          <th>Cantidad</th>
+          <th>Precio de venta</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-products>
+        <tr>
+          <td>{{ products.id }}</td>
+          <td>{{ products.nameProduct }}</td>
+          <td>{{ products.productPriceCompra }}</td>
+          <td>{{ products.cantidad }}</td>
+          <td>{{ products.productPriceVenta }}</td>
+          <td>
+            <!-- Botón de Editar -->
+            <button pButton type="button" label="Editar" class="p-button-sm p-button-warning" (click)="onEdit(products.id)"></button>
+            <!-- Botón de Eliminar -->
+            <button pButton type="button" label="Eliminar" class="p-button-sm p-button-danger" (click)="onDelete(products.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
